@@ -1,0 +1,26 @@
+{
+  "name": "sman",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-select": "^5.2.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.18",
+    "@types/react": "17.0.39",
+    "@types/styled-components": "^5.1.22",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.0.10",
+    "prettier": "2.5.1",
+    "typescript": "4.5.5"
+  }
+}
