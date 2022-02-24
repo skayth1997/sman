@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import Head from "next/head";
-import List from "../../elements/list";
+import * as S from './header.styles';
 
-const Header: FunctionComponent = (props) => {
+const Header: FunctionComponent = () => {
   return (
     <>
       <Head>
@@ -10,9 +10,14 @@ const Header: FunctionComponent = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav>
-        <List items={["Home", "Contact", "About"]} />
-      </nav>
+      <S.Nav>
+        <S.Logo>Sman</S.Logo>
+        <S.List>
+          {["Home", "Contact", "About"].map((item) => (
+            <S.ListItem key={item}>{item}</S.ListItem>
+          ))}
+        </S.List>
+      </S.Nav>
     </>
   );
 };

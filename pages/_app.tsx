@@ -5,6 +5,7 @@ import theme from "../lib/theme";
 import * as S from "../styles/global.styled";
 import Header from "../components/layout/header";
 import Footer from "../components/layout/footer";
+import Body from "../components/layout/body";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,9 +13,9 @@ function App({ Component, pageProps }: AppProps) {
       <S.Root id="root">
         <Header />
 
-        <S.Body>
+        <Body>
           <Component {...pageProps} />
-        </S.Body>
+        </Body>
 
         <Footer />
       </S.Root>
