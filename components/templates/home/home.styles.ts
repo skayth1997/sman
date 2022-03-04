@@ -74,7 +74,8 @@ const Main = styled.main`
         height: 100%;
         object-fit: cover;
         padding: 10px;
-        border: 1px black solid;
+        border: 1px #d8dee4 solid;
+        border-radius: 3px;
       }
     }
 
