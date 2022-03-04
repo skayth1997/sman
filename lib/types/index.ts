@@ -54,7 +54,7 @@ export interface RadioProps {
 
 /*************** Checkbox ***************/
 export interface CheckboxProps {
-  name: string;
+  name?: string;
   checked?: boolean;
   onChange?: (e) => void;
   hidden?: boolean;

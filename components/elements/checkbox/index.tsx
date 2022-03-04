@@ -7,7 +7,12 @@ const Checkbox: FunctionComponent<CheckboxProps> = (props) => {
 
   return (
     <S.Label>
-      <S.Checkbox hidden={hidden} name={name} checked={checked} onChange={onChange} />
+      <S.Checkbox
+        hidden={hidden}
+        name={name}
+        checked={checked}
+        onChange={onChange}
+      />
       <S.Span>{label}</S.Span>
     </S.Label>
   );

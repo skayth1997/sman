@@ -40,7 +40,7 @@ const Menu = styled.ul`
   margin: 30px 30px 0;
   display: grid;
 
-  @media screen and (max-width: ${DEVICE_SIZES.LAPTOP_L}px) {
+  @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
     grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
     text-align: center;
     margin: 10px 0;

@@ -1,8 +1,23 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import Head from "next/head";
-import * as S from './header.styles';
+import * as S from "./header.styles";
+import HamburgerMenu from "./hamburger-menu";
+import { HeaderProps } from "./types";
 
 const Header: FunctionComponent = () => {
+  const [state, setState] = useState<HeaderProps>({
+    checked: false,
+  });
+
+  const handleChange = (e) => {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    setState({
+      [name]: value,
+    });
+  };
   return (
     <>
       <Head>
@@ -11,10 +26,19 @@ const Header: FunctionComponent = () => {
       </Head>
 
       <S.Nav>
-        <S.Logo>Sman</S.Logo>
-        <S.List>
+        <span>
+          <HamburgerMenu
+            handleChange={handleChange}
+            active={state.checked ?? false}
+          />
+          <S.Logo active={state.checked ?? false}>Sman</S.Logo>
+        </span>
+
+        <S.List active={state.checked ?? false}>
           {["Home", "Contact", "About"].map((item) => (
-            <S.ListItem key={item}>{item}</S.ListItem>
+            <S.ListItem active={state.checked ?? false} key={item}>
+              <span>{item}</span>
+            </S.ListItem>
           ))}
         </S.List>
       </S.Nav>
