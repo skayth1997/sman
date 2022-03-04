@@ -1,7 +1,7 @@
 import { FunctionComponent, memo } from "react";
 import Checkbox from "../../elements/checkbox";
 import * as S from "./header.styles";
-import { HamburgerMenuProps } from "./types";
+import { HamburgerMenuProps } from "./header.types";
 
 const HamburgerMenu: FunctionComponent<HamburgerMenuProps> = (props) => {
   const { active, handleChange } = props;

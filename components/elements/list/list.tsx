@@ -1,5 +1,5 @@
 import { FunctionComponent, memo } from "react";
-import { ListProps } from "../../../lib/types";
+import { ListProps } from "./list.types";
 import * as S from "./list.styled";
 
 const List: FunctionComponent<ListProps> = ({ items }) => {

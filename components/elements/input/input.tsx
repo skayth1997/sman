@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import * as S from "./input.styled";
-import { InputProps } from "../../../lib/types";
+import { InputProps } from "./input.types";
 
 const Input: FunctionComponent<InputProps> = () => {
   return (

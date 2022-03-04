@@ -1,7 +1,7 @@
-import { NextPage } from "next";
 import * as S from "./home.styles";
+import { FunctionComponent } from "react";
 
-const Home: NextPage = () => {
+const Home: FunctionComponent = () => {
   return (
     <S.Home>
       <S.LeftAside>
