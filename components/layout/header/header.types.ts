@@ -6,3 +6,15 @@ export interface HamburgerMenuProps {
 export interface HeaderProps {
   checked?: boolean;
 }
+
+export interface HamburgerMenuLineInterface {
+  active: boolean;
+}
+
+export interface ListInterface {
+  active: boolean;
+}
+
+export interface ListItemInterface {
+  active: boolean;
+}
