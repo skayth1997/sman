@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { CheckboxProps } from "../../../lib/types";
+import { CheckboxProps } from "./checkbox.types";
 import * as S from "./checkbox.styled";
 
 const Checkbox: FunctionComponent<CheckboxProps> = (props) => {

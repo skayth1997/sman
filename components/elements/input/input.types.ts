@@ -1,0 +1,4 @@
+/*************** Input ***************/
+export interface InputProps {
+  //
+}
