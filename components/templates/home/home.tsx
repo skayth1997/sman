@@ -1,5 +1,5 @@
-import * as S from "./home.styles";
 import { FunctionComponent } from "react";
+import * as S from "./home.styles";
 
 const Home: FunctionComponent = () => {
   return (
