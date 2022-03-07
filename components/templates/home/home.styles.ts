@@ -63,27 +63,16 @@ const MenuItem = styled.li`
 
 const Main = styled.main`
   margin: 30px 0 30px;
+`;
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+const ImagesList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 
-    li {
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        padding: 10px;
-        border: 1px #d8dee4 solid;
-        border-radius: 3px;
-      }
-    }
-
-    @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
-      margin: 0 30px;
-    }
+  @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
+    margin: 0 30px;
   }
 `;
 
-export { Home, LeftAside, RightAside, Menu, MenuItem, Main };
+export { Home, LeftAside, RightAside, Menu, MenuItem, Main, ImagesList };

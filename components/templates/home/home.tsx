@@ -1,5 +1,7 @@
 import { FunctionComponent } from "react";
+import Image from "next/image";
 import * as S from "./home.styles";
+import { IMAGES } from "../../../lib/consts";
 
 const Home: FunctionComponent = () => {
   return (
@@ -15,20 +17,21 @@ const Home: FunctionComponent = () => {
       </S.LeftAside>
 
       <S.Main>
-        <ul>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/oYiTqum.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-        </ul>
+        <S.ImagesList>
+          {IMAGES.map(({ path, name, alt }, index) => (
+            <li key={index}>
+              <Image
+                src={path + name}
+                alt={alt}
+                width="100%"
+                height="100%"
+                layout="responsive"
+                objectFit="cover"
+                priority={true}
+              />
+            </li>
+          ))}
+        </S.ImagesList>
       </S.Main>
     </S.Home>
   );
