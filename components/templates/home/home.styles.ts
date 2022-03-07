@@ -13,6 +13,7 @@ const Home = styled.div`
 
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
     grid-template-columns: 1fr;
+    grid-template-rows: 60px auto;
   }
 `;
 
