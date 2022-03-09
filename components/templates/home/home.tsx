@@ -1,9 +1,25 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import Image from "next/image";
 import * as S from "./home.styles";
-import { IMAGES } from "../../../lib/consts";
+import { useDispatch, useSelector } from "react-redux";
+import { RootModel } from "../../../store/index.types";
+import { RematchDispatch } from "@rematch/core";
 
 const Home: FunctionComponent = () => {
+  const images = useSelector((state: RootModel) => state.images);
+  const dispatch = useDispatch<RematchDispatch<RootModel>>();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const images = await dispatch.images.fetch("hello 1");
+        dispatch.images.add(images);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [dispatch.images]);
+
   return (
     <S.Home>
       <S.LeftAside>
@@ -18,7 +34,7 @@ const Home: FunctionComponent = () => {
 
       <S.Main>
         <S.ImagesList>
-          {IMAGES.map(({ path, name, alt }, index) => (
+          {images.map(({ path, name, alt }, index) => (
             <li key={index}>
               <Image
                 src={path + name}
