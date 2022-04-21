@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import * as S from "./home.styles";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RootModel } from "../../../store/index.types";
 import { RematchDispatch } from "@rematch/core";
 
 const Home: FunctionComponent = () => {
-  const images = useSelector((state: RootModel) => state.images);
+  // const images = useSelector((state: RootModel) => state.images);
   const dispatch = useDispatch<RematchDispatch<RootModel>>();
 
   useEffect(() => {
@@ -34,19 +34,19 @@ const Home: FunctionComponent = () => {
 
       <S.Main>
         <S.ImagesList>
-          {images.map(({ path, name, alt }, index) => (
-            <li key={index}>
-              <Image
-                src={path + name}
-                alt={alt}
-                width="100%"
-                height="100%"
-                layout="responsive"
-                objectFit="cover"
-                priority={true}
-              />
-            </li>
-          ))}
+          {/*{images.map(({ path, name, alt }, index) => (*/}
+          {/*  <li key={index}>*/}
+          {/*    <Image*/}
+          {/*      src={path + name}*/}
+          {/*      alt={alt}*/}
+          {/*      width="100%"*/}
+          {/*      height="100%"*/}
+          {/*      layout="responsive"*/}
+          {/*      objectFit="cover"*/}
+          {/*      priority={true}*/}
+          {/*    />*/}
+          {/*  </li>*/}
+          {/*))}*/}
         </S.ImagesList>
       </S.Main>
     </S.Home>
