@@ -26,13 +26,11 @@ const Header: FunctionComponent = () => {
       </Head>
 
       <S.Nav>
-        <span>
-          <HamburgerMenu
-            handleChange={handleChange}
-            active={state.checked ?? false}
-          />
-          <S.Logo active={state.checked ?? false}>Sman</S.Logo>
-        </span>
+        <HamburgerMenu
+          handleChange={handleChange}
+          active={state.checked ?? false}
+        />
+        <S.Logo>Sman</S.Logo>
 
         <S.List active={state.checked ?? false}>
           {["Home", "Contact", "About"].map((item) => (
