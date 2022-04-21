@@ -1,21 +1,10 @@
 import styled, { css } from "styled-components";
 import { DEVICE_SIZES } from "../../../lib/consts";
-
-interface HamburgerMenuLineInterface {
-  active: boolean;
-}
-
-interface ListInterface {
-  active: boolean;
-}
-
-interface ListItemInterface {
-  active: boolean;
-}
-
-interface LogoInterface {
-  active: boolean;
-}
+import {
+  HamburgerMenuLineInterface,
+  ListInterface,
+  ListItemInterface,
+} from "./header.types";
 
 const Nav = styled.nav`
   display: grid;
@@ -23,30 +12,27 @@ const Nav = styled.nav`
   background: #24292e;
   color: #ffffff;
   align-items: center;
-  height: 60px;
+  padding: 20px 0;
 
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
-    grid-template-columns: auto 4fr auto;
+    padding: 0;
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto;
   }
 `;
 
-const Logo = styled.span<LogoInterface>`
+const Logo = styled.span`
   margin: 0 20px;
   font-weight: 800;
   font-size: 18px;
   cursor: pointer;
-  background: -webkit-linear-gradient(45deg, #f07715, #df3113);
+  background: #ffffff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  ${({ active }) =>
-    active &&
-    css`
-      visibility: hidden;
-    `};
+  display: block;
 
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
-    visibility: hidden;
+    display: none;
   }
 `;
 
@@ -55,20 +41,16 @@ const List = styled.ul<ListInterface>`
   margin: 0;
 
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
+    position: absolute;
     transform: translate(-150%);
+    margin-bottom: 10px;
 
     ${({ active }) =>
       active &&
       css`
-        padding-top: 60px;
-        height: calc(100vh - 40px);
-        background: #24292e;
-        max-width: 300px;
+        position: static;
         transform: inherit;
-        z-index: 1;
-        margin-left: -91px;
-        transition: transform 0.5s ease-in-out;
-        overflow: scroll;
+        transition: transform 0.1s ease-in-out;
       `}
   }
 `;
@@ -91,11 +73,24 @@ const ListItem = styled.li<ListItemInterface>`
   }
 
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
+    padding: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #999b9d;
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid #FFFFFF26;
+    }
+
     ${({ active }) =>
       active &&
       css`
         display: block;
-        padding: 20px;
       `}
   }
 `;
@@ -119,8 +114,8 @@ const HamburgerMenu = styled.div`
 `;
 
 const HamburgerMenuLines = styled.div`
-  height: 28px;
-  width: 35px;
+  height: 18px;
+  width: 22px;
   position: absolute;
   top: 16px;
   left: 20px;
@@ -136,15 +131,15 @@ const HamburgerMenuLine = styled.div<HamburgerMenuLineInterface>`
   height: 4px;
   width: 100%;
   border-radius: 10px;
-  transition: transform 0.5s ease;
-  background: linear-gradient(45deg, #f07715, #df3113);
+  transition: transform 0.1s ease;
+  background: #ffffff;
 
   ${({ active }) =>
     active &&
     css`
     &:nth-child(1) {
       transform-origin: 0 0;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.1s ease-in-out;
       transform: rotate(45deg);
     }
 
@@ -155,7 +150,7 @@ const HamburgerMenuLine = styled.div<HamburgerMenuLineInterface>`
 
     &:nth-child(3) {
       transform-origin: 0 100%;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.1s ease-in-out;
       transform: rotate(-45deg);
   `}
 `;
