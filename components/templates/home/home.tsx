@@ -1,7 +1,25 @@
+import { FunctionComponent, useEffect } from "react";
+// import Image from "next/image";
 import * as S from "./home.styles";
-import { FunctionComponent } from "react";
+import { useDispatch } from "react-redux";
+import { RootModel } from "../../../store/index.types";
+import { RematchDispatch } from "@rematch/core";
 
 const Home: FunctionComponent = () => {
+  // const images = useSelector((state: RootModel) => state.images);
+  const dispatch = useDispatch<RematchDispatch<RootModel>>();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const images = await dispatch.images.fetch("hello 1");
+        dispatch.images.add(images);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [dispatch.images]);
+
   return (
     <S.Home>
       <S.LeftAside>
@@ -15,20 +33,21 @@ const Home: FunctionComponent = () => {
       </S.LeftAside>
 
       <S.Main>
-        <ul>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/oYiTqum.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-          <li>
-            <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="" />
-          </li>
-        </ul>
+        <S.ImagesList>
+          {/*{images.map(({ path, name, alt }, index) => (*/}
+          {/*  <li key={index}>*/}
+          {/*    <Image*/}
+          {/*      src={path + name}*/}
+          {/*      alt={alt}*/}
+          {/*      width="100%"*/}
+          {/*      height="100%"*/}
+          {/*      layout="responsive"*/}
+          {/*      objectFit="cover"*/}
+          {/*      priority={true}*/}
+          {/*    />*/}
+          {/*  </li>*/}
+          {/*))}*/}
+        </S.ImagesList>
       </S.Main>
     </S.Home>
   );

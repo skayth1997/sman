@@ -1,12 +1,17 @@
 import { FunctionComponent } from "react";
 import * as S from "./input.styled";
 import { InputProps } from "./input.types";
-
-const Input: FunctionComponent<InputProps> = () => {
+const Input: FunctionComponent<InputProps> = ({ placeholder, label }) => {
   return (
     <S.InputWrapper>
-      <input type="text" required />
-      <label>Full name</label>
+      {label ? (
+        <label>
+          {label}
+          <input type="text" required placeholder={placeholder} />
+        </label>
+      ) : (
+        <input type="text" required placeholder={placeholder} />
+      )}
     </S.InputWrapper>
   );
 };

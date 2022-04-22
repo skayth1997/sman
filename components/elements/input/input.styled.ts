@@ -7,7 +7,7 @@ const InputWrapper = styled.div`
   padding-top: 1.5rem;
 
   & label {
-    color: #8597a3;
+    color: ${({ theme }) => theme.input.label.color};
     position: absolute;
     top: 1.5rem;
     transition: 0.25s ease;
