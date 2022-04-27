@@ -1,10 +1,4 @@
-// import cookie from "js-cookie";
-
-const cookie = {
-  set: (prop: string, data: string) => {},
-  get: (prop: string) => {},
-  remove: (prop: string) => {},
-};
+import cookie from "./index";
 
 function setApp(hide) {
   if (hide) cookie.set("app", hide);
