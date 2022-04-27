@@ -1,11 +1,11 @@
 const cookie = {
-  set(name, value) {
+  set(name: string, value: string) {
     let updatedCookie =
       encodeURIComponent(name) + "=" + encodeURIComponent(value);
 
     document.cookie = updatedCookie;
   },
-  get(name) {
+  get(name: string) {
     let matches = document.cookie.match(
       new RegExp(
         "(?:^|; )" +
@@ -15,7 +15,7 @@ const cookie = {
     );
     return matches ? decodeURIComponent(matches[1]) : undefined;
   },
-  remove(name) {
+  remove(name: string) {
     this.set(name, "");
   },
 };
