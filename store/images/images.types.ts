@@ -1,6 +1,5 @@
 import { List, Map } from "immutable";
 import { ModelReducers, RematchRootState } from "@rematch/core";
-import { RootModel } from "../index.types";
 
 type Image = Map<string, string>;
 type Images = List<Image>;
@@ -12,7 +11,7 @@ interface Reducers extends ModelReducers<Images> {
 type Effects = (dispatch) => {
   fetch: (
     payload: string,
-    rootState: RematchRootState<RootModel>
+    rootState: RematchRootState<any> // RootModel
   ) => Promise<void>;
 };
 

@@ -69,7 +69,19 @@ const ImagesList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-
+  & li > span {
+    cursor: pointer;
+    overflow: hidden;
+    & img {
+      transition: transform 0.5s;
+    }
+    &:hover {
+      text-decoration: underline;
+      & img {
+        transform: scale(1.5);
+      }
+    }
+  }
   @media screen and (max-width: ${DEVICE_SIZES.LAPTOP}px) {
     margin: 0 30px;
   }

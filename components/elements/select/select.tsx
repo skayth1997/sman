@@ -17,6 +17,7 @@ import type {
 
 const Select: FunctionComponent<SelectProps> = (props) => {
   const { options, isMulti, defaultValue, onChange } = props;
+  // @ts-ignore
   const themeContext = useContext(ThemeContext);
   const [state, setState] = useState<SelectState>({
     instanceId: undefined,

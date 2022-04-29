@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as S from "./header.styles";
 import HamburgerMenu from "./hamburger-menu";
 import { HeaderProps } from "./header.types";
+import A from "../../elements/A";
 
 const Header: FunctionComponent = () => {
   const [state, setState] = useState<HeaderProps>({
@@ -18,6 +19,11 @@ const Header: FunctionComponent = () => {
       [name]: value,
     });
   };
+  const lists = [
+    { id: 1, name: "Home", path: "/" },
+    { id: 2, name: "Contact", path: "/" },
+    { id: 3, name: "About", path: "/about" },
+  ];
   return (
     <>
       <Head>
@@ -33,9 +39,11 @@ const Header: FunctionComponent = () => {
         <S.Logo>Sman</S.Logo>
 
         <S.List active={state.checked ?? false}>
-          {["Home", "Contact", "About"].map((item) => (
-            <S.ListItem active={state.checked ?? false} key={item}>
-              <span>{item}</span>
+          {lists.map((list) => (
+            <S.ListItem active={state.checked ?? false} key={list.id}>
+              <span>
+                <A href={list.path} text={list.name} />
+              </span>
             </S.ListItem>
           ))}
         </S.List>

@@ -1,4 +1,4 @@
-import type { ReactDefaultTheme } from "../../../lib/types";
+import { ReactDefaultTheme } from "./select.types";
 
 const createTheme = (_: ReactDefaultTheme, themeContext) => ({
   ..._,

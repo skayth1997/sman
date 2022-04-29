@@ -13,10 +13,6 @@ const state: Images = List([
   Map({ path: "/shoes", name: "/photo_2022-03-07_12-30-32.jpg", alt: "" }),
 ]);
 
-console.log(state);
-
-console.log(state);
-
 const reducers: Reducers = {
   add(state, payload) {
     return state.push(payload);
