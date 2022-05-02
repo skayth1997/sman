@@ -3,7 +3,7 @@ import Head from "next/head";
 import * as S from "./header.styles";
 import HamburgerMenu from "./hamburger-menu";
 import { HeaderProps } from "./header.types";
-import A from "../../elements/A";
+import A from "../../elements/a";
 
 const Header: FunctionComponent = () => {
   const [state, setState] = useState<HeaderProps>({
